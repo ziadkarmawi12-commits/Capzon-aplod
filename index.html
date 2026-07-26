@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الكاسكيتات - Capzone49</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif, Arial;
+        }
+        body {
+            background-color: #0f0f11;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #1a1a1a, #111);
+            text-align: center;
+            padding: 25px 15px;
+            border-bottom: 2px solid #ff3e3e;
+        }
+        header h1 {
+            font-size: 2.2rem;
+            color: #ff3e3e;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .banner {
+            background-color: #ff3e3e;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background-color: #1a1a1e;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2a2a30;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 62, 62, 0.2);
+        }
+        .product-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            background-color: #25252b;
+        }
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .price-tag {
+            font-size: 1.4rem;
+            color: #25d366;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .buy-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff3e3e;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buy-btn:hover {
+            background-color: #e03232;
+        }
+        
+        /* Modal Form */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #1f1f24;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            border: 1px solid #333;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px; left: 15px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .modal h2 {
+            margin-bottom: 15px;
+            color: #ff3e3e;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #121214;
+            color: #fff;
+        }
+        .form-group input[type="file"] {
+            padding: 5px;
+            background: #25252b;
+            cursor: pointer;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            margin-top: 50px;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CAPZONE49 STORE</h1>
+    </header>
+
+    <div class="banner">
+        🔥 الثمن: 200 DH فقط! + Livraison Gratuite في جميع مدن المغرب 🇲🇦
+    </div>
+
+    <div class="container">
+        <div class="products-grid">
+
+            <!-- Cap 1 -->
+            <div class="product-card">
+                <img src="image.png" alt="كاسكيطة Tupac" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة رمادية - Tupac Edition</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة رمادية - Tupac Edition')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 2 -->
+            <div class="product-card">
+                <img src="image_2.png" alt="كاسكيطة Spider" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة رمادية - Spider Graphic</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة رمادية - Spider Graphic')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 3 -->
+            <div class="product-card">
+                <img src="image_3.png" alt="كاسكيطة Streetwear Red" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة حمراء - Streetwear Dollar Design</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة حمراء - Dollar Design')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 4 -->
+            <div class="product-card">
+                <img src="image_4.png" alt="كاسكيطة Skeleton LA" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة سوداء - Skeleton LA Cap</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة سوداء - Skeleton LA Cap')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 5 -->
+            <div class="product-card">
+                <img src="image_5.png" alt="كاسكيطة Lightning Skeleton" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة سوداء - Lightning Skeleton</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة سوداء - Lightning Skeleton')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 6 -->
+            <div class="product-card">
+                <img src="image_6.png" alt="كاسكيطة Lightning Mask" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة سوداء - Lightning Mask</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة سوداء - Lightning Mask')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 7 -->
+            <div class="product-card">
+                <img src="image_7.png" alt="كاسكيطة Spider Red" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة حمراء - Spider Graphic</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة حمراء - Spider Graphic')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 8 -->
+            <div class="product-card">
+                <img src="image_8.png" alt="كاسكيطة Gengar Blue Lightning" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة سوداء - Blue Lightning Gengar</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة سوداء - Blue Lightning Gengar')">اطلب الآن</button>
+                </div>
+            </div>
+
+            <!-- Cap 9 -->
+            <div class="product-card">
+                <img src="image_10.png" alt="كاسكيطة Red Eyes Skull" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">كاسكيطة سوداء - Red Eyes Skull</h3>
+                    <div class="price-tag">200 DH <small style="font-size:0.8rem; color:#aaa;">(التوصيل مجاني)</small></div>
+                    <button class="buy-btn" onclick="openOrderModal('كاسكيطة سوداء - Red Eyes Skull')">اطلب الآن</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal Form for Quick Order -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+            <h2>تأكيد الطلب</h2>
+            <form id="whatsappForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label>المنتج المحدد:</label>
+                    <input type="text" id="selectedProduct" readonly style="color: #ff3e3e; font-weight: bold;">
+                </div>
+                <div class="form-group">
+                    <label>الاسم الكامل:</label>
+                    <input type="text" id="fullName" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label>العنوان والمدينة:</label>
+                    <input type="text" id="addressAndCity" placeholder="مثال: الحي المحمدي، الدار البيضاء" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف:</label>
+                    <input type="tel" id="phoneNumber" placeholder="06XXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>صورة للبطاقة الوطنية (اختر الصورة من هاتفك):</label>
+                    <input type="file" id="cinImage" accept="image/*" required>
+                </div>
+                <button type="submit" class="submit-btn">تأكيد الطلب عبر الواتساب 📲</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Capzone49 Store - جميع الحقوق محفوظة
+    </footer>
+
+    <script>
+        const myPhoneNumber = "212627804451"; 
+
+        function openOrderModal(productName) {
+            document.getElementById('selectedProduct').value = productName;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const product = document.getElementById('selectedProduct').value;
+            const name = document.getElementById('fullName').value;
+            const addressCity = document.getElementById('addressAndCity').value;
+            const phone = document.getElementById('phoneNumber').value;
+            const cinFile = document.getElementById('cinImage').files[0];
+
+            let message = `السلام عليكم، بغيت نطلب هاد الكاسكيطة من متجر Capzone49:%0A` +
+                            `🧢 *المنتج:* ${product}%0A` +
+                            `💰 *الثمن:* 200 DH (Livraison Gratuite)%0A` +
+                            `👤 *الاسم الكامل:* ${name}%0A` +
+                            `📍 *العنوان والمدينة:* ${addressCity}%0A` +
+                            `📞 *رقم الهاتف:* ${phone}%0A` +
+                            `💳 *صورة البطاقة الوطنية:* (سأقوم بإرسالها لك الآن فالمحادثة)`;
+
+            if (cinFile) {
+                alert("سيتم تحويلك إلى الواتساب، المرجو إرفاق صورة البطاقة الوطنية في المحادثة مباشرة بعد فتحها.");
+            }
+
+            const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
